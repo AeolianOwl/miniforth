@@ -171,7 +171,7 @@ fn eval<'a>(
                 if len < 1 {
                     return Err(Error.into());
                 }
-                match *(stack.last().ok_or(Error))? {
+                match stack.pop().ok_or(Error)? {
                     Word::Bool(a) => {
                         println!("{}", a);
                     }
